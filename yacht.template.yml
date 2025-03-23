@@ -1,0 +1,16 @@
+version: "1"
+templates:
+  - name: Notifiarr
+    description: >
+      Notifiarr is a bridge between your media server services and Discord/Slack notifications, health checks, and more.
+    webui: http://[HOST]:5454
+    image: golift/notifiarr
+    restart_policy: unless-stopped
+    ports:
+      - container: 5454
+        host: 5454
+    volumes:
+      - host: /home/gino/.config/appdata/notifiarr:/config
+    env:
+      - TZ=America/New_York
+      - NOTIFIARR_API_KEY=1fa994c4-8ca7-47ac-9aee-cd5d38c87622
